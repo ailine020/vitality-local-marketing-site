@@ -1,109 +1,167 @@
-:root {
-  color: #2f2f2f;
-  background: #faf9f7;
-  font-family: Arial, Helvetica, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+:root{
+  --bg:#FAF9F7;
+  --paper:#FFFFFF;
+  --text:#2F2F2F;
+  --muted:#5b544f;
+  --heading:#2b211b;
+  --accent:#B08968;
+  --accent-soft:#E6D3B3;
+  --accent-bg:#FAF4EC;
+  --line:#E6D3B3;
 }
-
-* {
-  box-sizing: border-box;
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:'Inter', Arial, sans-serif;
+  color:var(--text);
+  background:var(--bg);
 }
-
-body {
-  margin: 0;
-  background: #faf9f7;
-  color: #2f2f2f;
+a{color:#6f533d;text-decoration:none}
+a:hover{text-decoration:underline}
+.container{max-width:1120px;margin:0 auto;padding:0 24px}
+.site-header{
+  position:sticky;top:0;z-index:10;
+  background:rgba(250,249,247,.95);
+  backdrop-filter: blur(8px);
+  border-bottom:1px solid rgba(230,211,179,.6);
 }
-
-a {
-  color: #8d6948;
-  text-decoration: none;
+.nav{display:flex;align-items:center;justify-content:space-between;padding:18px 24px}
+.brand{
+  font-family:'Cormorant Garamond', Georgia, serif;
+  font-size:40px;
+  line-height:1;
+  color:var(--heading);
 }
-
-a:hover {
-  text-decoration: underline;
+.subbrand{
+  margin-top:6px;
+  color:var(--accent);
+  font-size:12px;
+  text-transform:uppercase;
+  letter-spacing:.22em;
+  font-weight:600;
 }
-
-.page {
-  min-height: 100vh;
-  padding: 40px 20px;
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  border-radius:18px;padding:14px 20px;font-weight:600;
+  transition:.2s ease;
 }
-
-.hero {
-  max-width: 900px;
-  margin: 0 auto;
-  background: #ffffff;
-  border: 1px solid #eadbc8;
-  border-radius: 24px;
-  padding: 40px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+.btn:hover{text-decoration:none;transform:translateY(-1px)}
+.btn-primary{background:var(--accent);color:#fff;box-shadow:0 10px 24px rgba(176,137,104,.18)}
+.btn-primary:hover{opacity:.93}
+.btn-secondary{border:1px solid var(--accent);color:#6f533d;background:transparent}
+.btn-secondary:hover{background:rgba(230,211,179,.2)}
+.hero{
+  display:grid;grid-template-columns:1.1fr .9fr;gap:40px;
+  padding-top:72px;padding-bottom:56px;align-items:center;
 }
-
-.eyebrow {
-  display: inline-block;
-  background: #f4eadf;
-  color: #8d6948;
-  padding: 8px 14px;
-  border-radius: 999px;
-  font-size: 14px;
-  margin-bottom: 18px;
+.pill{
+  display:inline-block;background:rgba(230,211,179,.45);
+  padding:10px 16px;border-radius:999px;font-size:14px;margin-bottom:18px;
 }
-
-h1 {
-  font-size: 52px;
-  line-height: 1.05;
-  margin: 0 0 10px;
-  color: #2b211b;
+h1,.section-title,.brand{font-family:'Cormorant Garamond', Georgia, serif}
+h1{
+  margin:0;
+  font-size:72px;
+  line-height:.95;
+  color:var(--heading);
+  max-width:760px;
 }
-
-h2 {
-  margin: 0;
-  color: #b08968;
-  font-size: 24px;
-  font-weight: 700;
+.lead{
+  margin-top:24px;
+  max-width:640px;
+  font-size:20px;
+  line-height:1.8;
+  color:#4b433f;
 }
-
-.intro {
-  font-size: 20px;
-  max-width: 700px;
-  margin: 24px 0 28px;
+.meta{margin-top:26px;font-size:14px;color:#6a625e}
+.hero-card,.tag-card,.panel,.split-card{
+  background:var(--paper);
+  border:1px solid rgba(230,211,179,.55);
+  border-radius:32px;
+  box-shadow:0 8px 24px rgba(0,0,0,.04);
 }
-
-.card {
-  border-top: 1px solid #e8ddcf;
-  padding-top: 24px;
-  margin-top: 24px;
+.hero-card{padding:34px}
+.eyebrow{
+  color:var(--accent);
+  text-transform:uppercase;
+  letter-spacing:.24em;
+  font-size:12px;
+  font-weight:700;
 }
-
-.card h3 {
-  font-size: 28px;
-  margin: 0 0 16px;
+.hero-card h2, .section-title{
+  margin:12px 0 0;
+  font-size:48px;
+  line-height:1;
+  color:var(--heading);
 }
-
-ul {
-  padding-left: 22px;
-  margin: 0;
+.hero-card p, .service-card p, .split-card p, .contact-copy{
+  color:#554d48;
+  line-height:1.8;
+  font-size:18px;
 }
-
-li, p {
-  font-size: 18px;
+.stat-grid{
+  margin-top:26px;
+  display:grid;grid-template-columns:repeat(3,1fr);gap:12px;
 }
-
-@media (max-width: 700px) {
-  .hero {
-    padding: 28px 22px;
-  }
-
-  h1 {
-    font-size: 38px;
-  }
-
-  h2 {
-    font-size: 20px;
-  }
-
-  .intro, li, p {
-    font-size: 17px;
-  }
+.stat{
+  background:var(--accent-bg);border-radius:20px;padding:18px;text-align:center
+}
+.stat-num{font-size:32px;font-weight:700;color:var(--heading)}
+.stat-label{font-size:14px;color:#6a625e;margin-top:4px}
+.tag-card{
+  margin-top:16px;padding:22px;border-style:dashed;color:#5f5752
+}
+.section{padding:8px 0 20px}
+.panel{padding:40px}
+.service-grid{
+  margin-top:28px;display:grid;grid-template-columns:repeat(2,1fr);gap:18px
+}
+.service-card{
+  background:var(--bg);
+  border:1px solid rgba(230,211,179,.45);
+  border-radius:22px;
+  padding:24px;
+}
+.service-card h3{
+  margin:0;
+  font-size:24px;
+  color:var(--heading);
+}
+.split-section{
+  display:grid;grid-template-columns:1fr 1fr;gap:24px;padding:14px 24px 28px
+}
+.split-card{padding:36px}
+.split-tan{background:#F3E7D9}
+.chips{display:flex;gap:12px;flex-wrap:wrap;margin:22px 0 18px}
+.chips span{
+  background:#fff;border:1px solid rgba(230,211,179,.6);
+  border-radius:999px;padding:10px 16px;font-size:14px
+}
+.steps{margin-top:22px;display:grid;gap:16px}
+.step{display:flex;align-items:flex-start;gap:14px}
+.bubble{
+  width:38px;height:38px;border-radius:999px;background:var(--accent);
+  color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;flex:0 0 38px
+}
+.step p{margin:4px 0 0}
+.contact-panel{text-align:center;padding:46px}
+.contact-copy{max-width:700px;margin:16px auto 0}
+.contact-links{
+  display:flex;flex-direction:column;gap:14px;margin-top:28px;font-size:20px
+}
+.cta-row{display:flex;flex-wrap:wrap;gap:16px;margin-top:28px}
+@media (max-width: 960px){
+  .hero{grid-template-columns:1fr;gap:24px;padding-top:46px}
+  h1{font-size:54px}
+  .service-grid,.split-section{grid-template-columns:1fr}
+}
+@media (max-width: 640px){
+  .nav{flex-direction:column;align-items:flex-start;gap:16px}
+  .brand{font-size:32px}
+  h1{font-size:42px}
+  .hero-card h2,.section-title{font-size:36px}
+  .lead,.hero-card p,.service-card p,.split-card p,.contact-copy,.contact-links{font-size:17px}
+  .panel,.split-card,.hero-card,.contact-panel{padding:26px}
+  .stat-grid{grid-template-columns:1fr}
 }

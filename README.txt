@@ -1,0 +1,1 @@
+Upload index.html and styles.css to GitHub, then deploy with Vercel or Netlify.
